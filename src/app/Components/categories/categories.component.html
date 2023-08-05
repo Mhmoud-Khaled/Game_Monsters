@@ -1,0 +1,33 @@
+<div class="category">
+  <div class="container">
+    <div class="AllGames py-5">
+      <div class="allGameTitle d-flex pb-3">
+        <i class="fa-solid fa-puzzle-piece"></i>
+        <h5>{{category | titlecase }} Games</h5>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4" *ngFor="let item of gameData.slice(0,moreGame) | searchFilter:gameName">
+          <div class="card" style="width: 100%; margin-bottom: 20px;" (click)="getDetails(item.id)">
+            <img [src]="item?.thumbnail" class="card-img-top" alt="game image" />
+            <div class="card-body">
+              <h5 class="card-title">{{item?.title}}</h5>
+              <p class="card-text">
+                {{item?.short_description | limitWord:30}}
+              </p>
+              <div class="type d-flex">
+                <button type="button" class="btn btn-secondary" disabled>{{item?.platform | titlecase}}</button>
+                <button type="button" class="btn btn-secondary" disabled>{{item?.genre | titlecase}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="more d-flex justify-content-center py-5">
+        <button type="button" class="btn btn-primary" (click)="getMoreGame()">Show More</button>
+      </div>
+      <button class="arrow" [class.disable]="disable" (click)="goToTop()" [disabled]="disable">
+        <i class="fa-solid fa-arrow-up-long" (click)="goToTop()"></i>
+      </button>
+    </div>
+  </div>
+</div>

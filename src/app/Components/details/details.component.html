@@ -1,0 +1,77 @@
+<div class="details">
+  <div class="container">
+    <div class="box pt-5">
+      <div class="card mb-3" style="width: 100%;">
+        <div class="row g-0">
+          <div class="col-md-5 mb-5">
+            <img [src]="gameDetails?.thumbnail" class="img-fluid rounded w-100 h-100" alt="game image">
+            <div class="download d-flex justify-content-between my-2">
+              <button type="button" class="btn btn-secondary px-3" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop" disabled>
+                {{gameDetails?.platform}}
+
+              </button>
+              <button type="button" class="btn btn-primary"><i class="fa-solid fa-circle-down me-3"></i><a
+                  [href]="gameDetails?.game_url" target="_blank" rel="noopener noreferrer">Download Now</a></button>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h3 class="card-title" style="color:rgb(25,80,138)">{{gameDetails?.title}}</h3>
+              <h5 class="card-title">{{gameDetails?.genre}}</h5>
+              <p class="card-text">{{gameDetails?.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid" src="./assets/user.png" alt="">
+        </div>
+        <div class="col-md-7 align-self-center">
+          <div class="requirement">
+            <h3>Min-Requirements:</h3>
+            <br>
+            <ul class="reqList">
+              <li style="font-size: 20px;"><span
+                  style="font-weight: bold; font-size: 30px;color:rgb(25,80,138)">Graphics: </span>
+                {{gameDetails?.minimum_system_requirements?.graphics}}</li>
+              <li style="font-size: 20px;"><span style="font-weight: bold; font-size: 30px;color:rgb(25,80,138)">Memory:
+                </span> {{gameDetails?.minimum_system_requirements?.memory}}</li>
+              <li style="font-size: 20px;"><span style="font-weight: bold; font-size: 30px;color:rgb(25,80,138)">Os:
+                </span> {{gameDetails?.minimum_system_requirements?.os}}</li>
+              <li style="font-size: 20px;"><span
+                  style="font-weight: bold; font-size: 30px;color:rgb(25,80,138)">Processor: </span>
+                {{gameDetails?.minimum_system_requirements?.processor}}</li>
+              <li style="font-size: 20px;"><span
+                  style="font-weight: bold; font-size: 30px;color:rgb(25,80,138)">Storage: </span>
+                {{gameDetails?.minimum_system_requirements?.storage}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- Modal -->
+    <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Game title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{vedio_url}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  </div>
+</div>

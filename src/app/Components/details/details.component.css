@@ -1,0 +1,45 @@
+.details{
+  background-image: url('../../../assets/background.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* background-color: rgba(0, 0, 0, 0.9); */
+  /* background-color: black; */
+  min-height: 100vh;
+  position: relative;
+}
+.details::before {
+content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right,rgb(22, 22, 22),rgb(22, 22, 22));
+    opacity: .9;
+}
+
+.details .container{
+  position: relative;
+  color: rgb(187, 185, 185);
+  /* z-index: 2; */
+}
+
+.card{
+  background-color: transparent;
+  color:rgb(187, 185, 185);
+  border: 1px solid transparent;
+}
+
+
+.box .requirement .reqList{
+  font-size: 30px;
+  font-style: oblique;
+  text-transform: capitalize;
+}
+
+
+a{
+  color: white;
+  text-decoration: none;
+}

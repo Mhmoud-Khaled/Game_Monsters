@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home">
+      <img src="./assets/Logo_2.png" width="130" alt="" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="width: 30%">
+        <li class="nav-item" *ngIf="isLogin">
+          <a class="nav-link" aria-current="page" routerLink="/home" #home routerLinkActive="active" (click)="removeActiveClassToCat()">Home</a>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="isLogin">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" #cat role="button" data-bs-toggle="dropdown"
+            aria-expanded="false" (click)="addActiveClassToCat()">
+            Category
+          </a>
+          <ul class="dropdown-menu scrollBar p-0" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/category/all" routerLinkActive="active">All</a></li>
+            <li *ngFor="let cat of categoryList"><a class="dropdown-item" routerLink="/category/{{cat}}" routerLinkActive="active">{{cat | titlecase}}</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm d-flex flex-nowrap" id="pillNav2" role="tablist"
+            style="
+              --bs-nav-link-color: var(--bs-white);
+              --bs-nav-pills-link-active-color: var(--bs-primary);
+              --bs-nav-pills-link-active-bg: var(--bs-white);
+            " *ngIf="isLogin">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active rounded-5 p-1" id="home-tab2" data-bs-toggle="tab" type="button" role="tab"
+                aria-selected="true" (click)="plateFormSelected($event)">
+                PC
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link rounded-5 p-1" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab"
+                aria-selected="false" (click)="plateFormSelected($event)">
+                Browser
+              </button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <input class="form-control me-2" *ngIf="isLogin" type="search" placeholder="Search" aria-label="Search"(ngModelChange)="change($event)" [(ngModel)]="gameName"/>
+      </div>
+      <ul class="navbar-nav signIn">
+        <li class="nav-item" *ngIf="!isLogin">
+          <a class="nav-link" aria-current="page" routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLogin">
+          <a class="nav-link" aria-current="page" routerLink="/register" routerLinkActive="active">Sign Up</a>
+        </li>
+        <li class="nav-item" *ngIf="isLogin">
+          <a class="nav-link" aria-current="page" routerLink="/login" routerLinkActive="active" (click)="logout()">Log
+            Out</a>
+        </li>
+        <li class="nav-item d-flex" *ngIf="isLogin">
+          <img src="./assets/user.png\" width="50" height="50" alt="" style="margin-right: -15px;" />
+          <a class="nav-link active" aria-current="page" routerLink="/home" >{{usrName}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

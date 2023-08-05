@@ -1,0 +1,104 @@
+<div class="login">
+  <div class="card">
+    <img src="./assets/Logo.jpg" class="card-img" alt="..." />
+    <div class="card-body">
+      <h2 class="card-title title">Ready To Join Us</h2>
+      <hr />
+      <div class="card-text">
+        <form class="login-form" [formGroup]="form">
+          <div class="d-flex name">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control first"
+                [ngClass]="{
+                  'is-valid':
+                    !form.get('Fname')?.errors && form.get('Fname').dirty,
+                  'is-invalid':
+                    form.get('Fname')?.errors && form.get('Fname').dirty
+                }"
+                id="floatingf"
+                placeholder="First Name"
+                formControlName="Fname"
+              />
+              <label for="floatingf">First Name</label>
+              <div class="invalid-feedback" id="floatingf">Required</div>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control last"
+                id="floatingl"
+                placeholder="Last Name"
+                formControlName="Lname"
+                [ngClass]="{
+                  'is-valid': !form.get('Lname')?.errors && form.get('Lname').dirty,
+                  'is-invalid': form.get('Lname')?.errors && form.get('Lname').dirty
+                }"
+              />
+              <label for="floatingl">Last Name</label>
+              <div class="invalid-feedback" id="floatingl">Required</div>
+            </div>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              formControlName="email"
+              [ngClass]="{
+                'is-valid': !form.get('email')?.errors && form.get('email').dirty,
+                'is-invalid': form.get('email')?.errors && form.get('email').dirty
+              }"
+            />
+            <label for="floatingInput">Email address</label>
+            <div class="invalid-feedback" id="floatingInput">Email Address Not Valid</div>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="Password"
+              formControlName="password"
+              [ngClass]="{
+                'is-valid': !form.get('password')?.errors && form.get('password').dirty,
+                'is-invalid': form.get('password')?.errors && form.get('password').dirty
+              }"
+            />
+            <label for="floatingPassword">Password</label>
+            <div class="invalid-feedback" id="floatingPassword">Required and at least 8 chracters</div>
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              id="floatingRePassword"
+              placeholder="Repeat Password"
+              formControlName="rePassword"
+              [ngClass]="{
+                'is-valid': form.get('rePassword').dirty && form.get('rePassword').value === form.get('password').value,
+                'is-invalid': form.get('rePassword').dirty && form.get('rePassword').value != form.get('password').value
+              }"
+            />
+            <label for="floatingRePassword">Repeat Password</label>
+            <div class="invalid-feedback" id="floatingRePassword">Required and at least 8 chracters</div>
+            <p class="parLoginLink">
+              <a class="loginLink" routerLink="/login"
+                >I already have an account</a
+              >
+            </p>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="submit()" [disabled]= "!form.valid">
+            <div class="spinner-border text-light" role="status" *ngIf="spinner">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <span *ngIf="!spinner">Sign Up</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

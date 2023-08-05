@@ -1,0 +1,71 @@
+.login{
+  background-color:  rgb(25,80,138);
+  min-height:calc(100vh - 71px);
+  display: flex;
+}
+
+.card{
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  width: 80%;
+  height: 80%;
+  margin: auto;
+  overflow: hidden;
+  background-color: rgb(25,80,138);
+  box-shadow: 0px 0px 10px 2px rgb(11,15,54)
+}
+
+.card img{
+  width: 100%;
+  height: 100%;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+form input{
+  padding: 5px 15px;
+}
+
+form button{
+  text-align: center;
+  align-self: center;
+  width: 50%;
+  margin-top: 15px;
+}
+
+@media(max-width: 1000px){
+  .card{
+    grid-template-columns: 1fr
+  }
+}
+
+hr{
+  opacity: 1 !important;
+  color: white;
+}
+
+.title{
+  text-align: center;
+  color: white;
+}
+
+label{
+  color: gray;
+}
+
+.name{
+  justify-content: space-between;
+}
+
+.loginLink{
+  font-size:.8rem!important ;
+  color: white;
+}
+
+.parLoginLink{
+  text-align: end;
+}
